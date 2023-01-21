@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.text.TextPaint;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity1_startscreen extends AppCompatActivity {
 
     //initen textviews
     TextView textView1;
