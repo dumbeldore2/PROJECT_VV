@@ -10,6 +10,8 @@ import android.text.TextPaint;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 public class MainActivity1_startscreen extends AppCompatActivity {
 
     //initen textviews
@@ -34,19 +36,25 @@ public class MainActivity1_startscreen extends AppCompatActivity {
 
         //functions
         setColorToGradiant(textView1);
+        //setTitleColor(textView1,textView2);
 
     }
 
+    public void setTitleColor(TextView textView1 , TextView textView2){
+        textView1.setTextColor(getResources().getColor(R.color.C_5));
+        textView2.setTextColor(getResources().getColor(R.color.C_5));
+    }
 
     private void setColorToGradiant(TextView textView){
         TextPaint textPaint = textView.getPaint();
         float width = textPaint.measureText(textView.getText().toString());
 
-        Shader shader = new LinearGradient(width/2,0,width/2,textView.getTextSize(),
+        Shader shader = new LinearGradient(width/2,textView.getY(),width/2,
+                textView.getY() + textView.getTextSize(),
                 new int[]{
-                        Color.parseColor("#F2EBDF"),
-                        Color.parseColor("#BF4F26")
-                },null,Shader.TileMode.CLAMP);
+                        Color.parseColor("#BF4F26"),
+                        Color.parseColor("#F2EBDF")
+                },null,Shader.TileMode.MIRROR);
         textView.getPaint().setShader(shader);
     }
 }
