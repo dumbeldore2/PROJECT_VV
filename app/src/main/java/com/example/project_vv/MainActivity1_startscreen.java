@@ -7,6 +7,7 @@ import android.graphics.LinearGradient;
 import android.graphics.Shader;
 import android.os.Bundle;
 import android.text.TextPaint;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 public class MainActivity1_startscreen extends AppCompatActivity {
@@ -18,6 +19,14 @@ public class MainActivity1_startscreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_activity1_startscreen);
+
+        getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        );
+        getWindow().setNavigationBarColor(getResources().getColor(R.color.black));
+        getWindow().setStatusBarColor(getResources().getColor(R.color.black));
+
 
         //conecten textviews
         textView1 = findViewById(R.id.title);
